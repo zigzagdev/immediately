@@ -1,4 +1,6 @@
 import {useState} from "react";
+import Form from "./Form";
+import List from "./List";
 
 export type todo = {
     id: number,
@@ -6,26 +8,36 @@ export type todo = {
     status: boolean
 };
 
-const todo = () => {
+const Todo = () => {
   const lists = [
       {
           id: 1,
           content: 'make a result',
-          status: true
+          status: false
       },
       {
           id: 2,
           content: 'laver ses main',
-          status: true
+          status: false
       },
       {
           id: 3,
           content: 'Laravel study',
-          status: true
+          status: false
       },
       {
           id: 4,
-          content: 'learn machine learning',
+          content: '4',
+          status: false
+      },
+      {
+          id: 5,
+          content: '5',
+          status: false
+      },
+      {
+          id: 6,
+          content: '6',
           status: false
       },
   ];
@@ -45,16 +57,19 @@ const todo = () => {
   };
 
   const deleteTodo = (id: number) => {
-      const newTodo = lists.filter((list) => {
-          return list.id !== id;
+      const newTodo = lists.filter((todo) => {
+          return todo.id !== id;
       })
       setTodo(newTodo);
   };
   return(
       <>
           <div>
-
+              <List todos={todo} updateTodo={updateTodo} deleteTodo={deleteTodo}/>
+              <Form make={make}/>
           </div>
       </>
   );
 }
+
+export default Todo;

@@ -1,10 +1,10 @@
 import React from 'react';
-import Deed from './components/Deed';
+import Todo from './components/Todo';
 
 function App() {
   return (
     <div>
-      <Deed/>
+      <Todo/>
     </div>
   );
 }
